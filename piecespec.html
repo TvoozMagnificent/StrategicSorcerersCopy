@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piece Specifications</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Pacifico', cursive;
+            font-size: 16px;
+            text-align: center;
+            margin: 0;
+            background-color: #f7f7f7;
+            background-image: url('piecespec.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .banner {
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            position: relative;
+            color: #00008B;
+            font-size: 24px;
+        }
+        .banner img {
+            max-width: 300px;
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+        }
+        .container {
+            max-width: 800px;
+            background-color: none;
+            text-align: left;
+            color: #FFFFFF;
+		    font-size: 80px; 
+        }
+        .rule-content {
+            display: none;
+            color: #013220;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .icon-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 56px;
+            margin: 10px 0;
+            display: block; 
+            margin-bottom:5	px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <h1>Piece Specifications in Strategic Sorcerers</h1>
+    </div>
+    <div class="container">
+        <button class="icon-button" onclick="toggleRules('pawn')">Pawn ♙</button>
+        <div id="pawn-rules" class="rule-content">
+            Starting Position: The pawns are placed on the second rank for White and seventh rank for Black.<br>
+            Movement:<br>
+            Pawns move forward but capture diagonally.<br>
+            On their first move, pawns have the option to move two squares forward.<br>
+            Pawns cannot move backward.<br>
+            Special Rules:<br>
+            En Passant: A pawn capturing rule which allows a pawn to capture an opponent's pawn in a specific situation.<br>
+            Promotion: When a pawn reaches the opponent's back rank, it can be promoted to any other piece (except another king).<br>
+        </div>
+        
+        <button class="icon-button" onclick="toggleRules('rook')">Rook ♖</button>
+        <div id="rook-rules" class="rule-content">
+            Starting Position: In each corner of the board (a1, h1 for White; a8, h8 for Black).<br>
+            Movement:<br>
+            Rooks move horizontally or vertically along ranks and files.<br>
+            They can move any number of squares in a straight line.<br>
+            Rooks cannot jump over other pieces.<br>
+            Special Rules: None.<br>
+        </div>
+
+        <button class="icon-button" onclick="toggleRules('knight')">Knight ♘</button>
+        <div id="knight-rules" class="rule-content">
+            Starting Position: Next to each rook (b1, g1 for White; b8, g8 for Black).<br>
+            Movement:<br>
+            Knights move in an L-shape: two squares in one direction and then one square perpendicular to that.<br>
+            Knights are the only pieces that can "jump" over other pieces.<br>
+            Special Rules: None.<br><br>
+        </div>
+
+        <button class="icon-button" onclick="toggleRules('bishop')">Bishop ♗</button>
+        <div id="bishop-rules" class="rule-content">
+            Starting Position: Next to each knight (c1, f1 for White; c8, f8 for Black).<br>
+            Movement:<br>
+            Bishops move diagonally along their color (light or dark) squares.<br>
+            They can move any number of squares diagonally.<br>
+            Special Rules: None.<br><br>
+        </div>
+
+        <button class="icon-button" onclick="toggleRules('queen')">Queen ♕</button>
+        <div id="queen-rules" class="rule-content">
+            Starting Position: The Queen starts on the remaining square of her color (d1 for White; d8 for Black).<br>
+            Movement:<br>
+            Queens combine the movements of rooks and bishops. They can move horizontally, vertically, or diagonally any number of squares.<br>
+            Special Rules: None.<br><br>
+        </div>
+
+        <button class="icon-button" onclick="toggleRules('king')">King ♔</button>
+        <div id="king-rules" class="rule-content">
+            Starting Position: The King is placed in the center square of the back rank (e1 for White; e8 for Black).<br>
+            Movement:<br>
+            The King can move one square in any direction: horizontally, vertically, or diagonally.<br>
+            Special Rules:<br>
+            Castling: A special move involving the King and either rook under certain conditions.<br>
+            Check and Checkmate: Special conditions related to the safety of the King.<br><br>
+        </div>
+
+        <button class="icon-button" onclick="toggleRules('castling')">Castling</button>
+        <div id="castling-rules" class="rule-content">
+            Description: A special move involving the King and one of the rooks.<br>
+            Conditions:<br>
+            The King and the involved rook have not moved.<br>
+            There are no pieces between the King and the rook.<br>
+            The King is not in check, and it cannot move through or onto a square that is attacked by an opponent’s piece.<br>
+            The King cannot be in check after the castling move.<br><br>
+        </div>
+    </div>
+
+    <script>
+        function toggleRules(piece) {
+            var element = document.getElementById(piece + "-rules");
+            element.style.display = (element.style.display === "none") ? "block" : "none";
+        }
+    </script>
+</body>
+</html>
